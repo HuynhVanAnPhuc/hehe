@@ -1,0 +1,142 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(circle, #ffe6f0, #ccf2ff);
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+  text-align: center;
+}
+
+.letter {
+  background: white;
+  margin: 60px auto 20px;
+  padding: 30px;
+  max-width: 600px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.letter h2 {
+  color: #ff3399;
+}
+
+.cake {
+  position: relative;
+  width: 150px;
+  margin: 30px auto;
+}
+
+.layer {
+  width: 100%;
+  height: 30px;
+  border-radius: 8px;
+  background: pink;
+  margin-top: -10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.layer1 { background: #ff9aa2; z-index: 1; }
+.layer2 { background: #ffb347; z-index: 2; }
+.layer3 { background: #fdfd96; z-index: 3; }
+
+.candle {
+  width: 10px;
+  height: 30px;
+  background: orange;
+  margin: 0 auto;
+  border-radius: 3px;
+  position: relative;
+  z-index: 4;
+  top: -10px;
+  box-shadow: 0 0 10px gold;
+}
+
+.color-text {
+  font-size: 28px;
+  font-weight: bold;
+  animation: rainbow 4s infinite linear, move 12s infinite linear;
+  white-space: nowrap;
+  margin-top: 20px;
+}
+
+@keyframes rainbow {
+  0% {color: red;}
+  16% {color: orange;}
+  32% {color: yellow;}
+  48% {color: green;}
+  64% {color: blue;}
+  80% {color: indigo;}
+  100% {color: violet;}
+}
+
+@keyframes move {
+  0% {transform: translateX(-100%);}
+  100% {transform: translateX(100%);}
+}
+
+canvas#fireworks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+#confetti-container div,
+#heart-container div {
+  position: fixed;
+  pointer-events: none;
+  z-index: 10;
+  animation: fall 5s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.heart {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  position: absolute;
+  transform: rotate(-45deg);
+  animation: floatUp 6s ease-in infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  left: 10px;
+  top: 0;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1.5);
+    opacity: 0;
+  }
+}
